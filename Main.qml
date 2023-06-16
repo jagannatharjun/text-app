@@ -143,11 +143,10 @@ ApplicationWindow {
                     icon.source: "qrc:///res/more.svg"
                 }
 
-                MButton {
-                    Layout.topMargin: 21
+                DropDownButton {
+                    id: channelButton
 
                     text: "Channels"
-                    icon.source: "qrc:///res/drop.svg"
                 }
 
                 Repeater {
@@ -157,6 +156,8 @@ ApplicationWindow {
                         leftPadding: 36
                         Layout.fillWidth: true
 
+                        visible: channelButton.open
+
                         text: "channel-" + (index + 1)
                         icon.source: "qrc:///res/hash.svg"
                         font.weight: Font.DemiBold
@@ -165,13 +166,13 @@ ApplicationWindow {
 
                 AddButton {
                     text: "Add channels"
+                    visible: channelButton.open
                 }
 
-                MButton {
-                    Layout.topMargin: 21
+                DropDownButton {
+                    id: directMessageButton
 
                     text: "Direct Messages"
-                    icon.source: "qrc:///res/drop.svg"
                 }
 
                 Repeater {
@@ -201,10 +202,12 @@ ApplicationWindow {
                         icon.source: modelData.icon
                         online: modelData.online
                         font.weight: Font.DemiBold
+                        visible: directMessageButton.open
                     }
                 }
 
                 AddButton {
+                    visible: directMessageButton.open
                     text: "Add Teammates"
                     leftPadding: 26
                 }
@@ -250,6 +253,24 @@ ApplicationWindow {
 
         leftPadding: 16
         font.weight: Font.Bold
+    }
+
+    component DropDownButton : MButton {
+        property bool open: true
+
+        Layout.topMargin: 21
+
+        icon.source: "qrc:///res/drop.svg"
+
+        onPressed: open = !open
+        onIconItemChanged: {
+            // binding on iconItem.roation doesn't work, since iconItem is a QtObject,
+            // qml script doesn't like casting in declarative declaration
+            if (!iconItem)
+                return
+
+            iconItem.rotation = Qt.binding(function () { return open ? 0 : 180 })
+        }
     }
 
     component AddButton: ButtonExt {
