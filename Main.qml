@@ -26,6 +26,14 @@ ApplicationWindow {
                 width: parent.width
                 spacing: 10
 
+                Rectangle {
+                    Layout.fillWidth: true
+
+                    height: 1
+                    color: "white"
+                    opacity: .1
+                }
+
                 Repeater {
                     model: ["A", "B", "C"]
 
@@ -77,6 +85,14 @@ ApplicationWindow {
 
             ColumnLayout {
                 width: mainCol.width
+
+                Rectangle {
+                    Layout.fillWidth: true
+
+                    height: 1
+                    color: "white"
+                    opacity: .1
+                }
 
                 Item {
                     Layout.fillWidth: true
