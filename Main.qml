@@ -222,6 +222,11 @@ ApplicationWindow {
 
             spacing: 2
 
+            ChannelBar {
+                Layout.fillWidth: true
+
+            }
+
             MessageView {
                 Layout.fillHeight: true
                 Layout.fillWidth: true

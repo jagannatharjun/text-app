@@ -23,6 +23,7 @@ qt_add_qml_module(apptextapp
 	ChatBox.qml
 	ComboBoxExt.qml
 	TopBar.qml
+	ChannelBar.qml
 )
 
 FILE(GLOB_RECURSE
