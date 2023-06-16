@@ -3,11 +3,15 @@ import QtQuick.Window
 import QtQuick.Layouts
 import QtQuick.Controls
 
-Window {
+ApplicationWindow {
     width: 1000
     height: 800
     visible: true
     title: qsTr("Hello World")
+
+    header: TopBar {
+
+    }
 
     RowLayout {
         anchors.fill: parent
