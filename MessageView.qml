@@ -7,10 +7,6 @@ ListView {
 
 
     function pushText(text) {
-        text = text.replace(/^\s*\n/gm, "")
-        if (!text)
-            return
-
         var obj = defaultTexts()[0]
         obj["text"] = text
 
