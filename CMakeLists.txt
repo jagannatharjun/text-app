@@ -15,7 +15,13 @@ qt_add_executable(apptextapp
 qt_add_qml_module(apptextapp
     URI text-app
     VERSION 1.0
-    QML_FILES Main.qml ButtonExt.qml ScrollViewExt.qml MessageView.qml ChatBox.qml
+    QML_FILES
+        Main.qml
+	ButtonExt.qml
+	ScrollViewExt.qml
+	MessageView.qml
+	ChatBox.qml
+	ComboBoxExt.qml
 )
 
 FILE(GLOB_RECURSE

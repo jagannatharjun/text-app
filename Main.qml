@@ -50,10 +50,14 @@ Window {
 
                     implicitHeight: 65
 
-                    ComboBox {
+                    ComboBoxExt {
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.left: parent.left
                         anchors.leftMargin: 16
+
+                        width: 98
+
+                        model: ["Test", "Test2", "Test3"]
                     }
 
                     Rectangle {
