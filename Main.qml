@@ -10,7 +10,6 @@ ApplicationWindow {
     title: qsTr("Hello World")
 
     header: TopBar {
-
     }
 
     RowLayout {

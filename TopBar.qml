@@ -8,7 +8,8 @@ Pane {
         color: "#301134"
     }
 
-    padding: 6
+    padding: 1
+    topPadding:4
 
     contentItem: RowLayout {
         id: layout
@@ -24,16 +25,22 @@ Pane {
             model: ["qrc:///res/right.png", "qrc:///res/left.png", "qrc:///res/clock.png"]
 
             ButtonExt {
+                Layout.alignment: Qt.AlignCenter
                 icon.source: modelData
+                icon.width: 19
+                icon.height: 19
             }
         }
 
         TextArea {
             id: search
+            Layout.alignment: Qt.AlignCenter
 
             Layout.preferredWidth: 500
             Layout.minimumWidth: 100
             Layout.maximumWidth: 500
+
+            font.pixelSize: 10
 
             color: palette.light
 
@@ -65,10 +72,10 @@ Pane {
 
         }
 
-        ButtonExt {
-            Layout.alignment: Qt.AlignCenter
+        Image {
+            Layout.alignment: Qt.AlignTop
 
-            icon.source: "qrc:///res/question.png"
+            source: "qrc:///res/question.png"
         }
 
         Item {
@@ -77,7 +84,7 @@ Pane {
         }
 
         Image {
-            Layout.fillHeight: true
+            Layout.alignment: Qt.AlignTop
             source: "qrc:///res/profile.png"
         }
     }

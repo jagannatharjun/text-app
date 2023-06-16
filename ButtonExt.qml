@@ -14,6 +14,9 @@ T.Button {
 
     padding: 4
 
+    icon.width: 20
+    icon.height: 20
+
     implicitWidth:  implicitContentWidth+ leftPadding + rightPadding
     implicitHeight: implicitContentHeight + topPadding + bottomPadding
 
@@ -43,15 +46,14 @@ T.Button {
         }
     }
 
-    component DefaultIconDelegate: Item {
-        width: 20
-        height: 20
+    component DefaultIconDelegate: Image {
+        width: icon.width
+        height: icon.height
 
-        Image {
-            anchors.centerIn: parent
+        source: icon.source
 
-            source: icon.source
-            fillMode: Image.PreserveAspectFit
-        }
+        fillMode: Image.Pad
+        verticalAlignment: Image.AlignVCenter
+        horizontalAlignment: Image.AlignHCenter
     }
 }
