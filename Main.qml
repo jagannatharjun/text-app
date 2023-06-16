@@ -234,6 +234,8 @@ ApplicationWindow {
             }
 
             MessageView {
+                id: messages
+
                 topMargin: 20
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -248,6 +250,10 @@ ApplicationWindow {
                 Layout.rightMargin: 8
                 Layout.bottomMargin: 24
                 Layout.topMargin: 24
+
+                onInputText: function (text) {
+                    messages.pushText(text)
+                }
             }
         }
     }
