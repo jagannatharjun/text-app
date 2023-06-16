@@ -19,6 +19,36 @@ Window {
             width: 60
             color: "#3F0F3F"
 
+            ColumnLayout {
+                width: parent.width
+                spacing: 10
+
+                Repeater {
+                    model: ["A", "B", "C"]
+
+                    AlphaButton {
+                        Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                        Layout.preferredHeight: 44
+                        Layout.preferredWidth: 44
+
+                        text: modelData
+                        highlighted: text === "B"
+                    }
+                }
+
+                AlphaButton {
+                    Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                    Layout.preferredHeight: 44
+                    Layout.preferredWidth: 44
+
+                    text: "+"
+                    showTextBackground: false
+                    font.pixelSize: 24
+                    contentItem.opacity: .6
+                }
+
+            }
+
             Rectangle {
                 anchors {
                     right: parent.right
@@ -203,6 +233,47 @@ Window {
                 font: root.font
                 color: "white"
             }
+        }
+    }
+
+    component AlphaButton: RoundButton {
+        id: alphabutton
+
+        property bool showTextBackground: true
+
+        font.pixelSize: 17
+        font.weight: Font.Bold
+
+        width: 44
+        height: 44
+
+        background: Item {
+
+            Rectangle {
+                anchors.fill: parent
+                radius: 12
+                color: "transparent"
+                border.width: 3
+                border.color: "white"
+
+                visible: alphabutton.hovered || alphabutton.highlighted
+            }
+
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 6
+
+                radius: 5
+                color: "#616061"
+                visible:  alphabutton.showTextBackground
+            }
+        }
+
+        contentItem: Label {
+            text: alphabutton.text
+            color: "white"
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
         }
     }
 }
