@@ -27,6 +27,10 @@ ListView {
 
     }
 
+    add: Transition {
+        NumberAnimation { property: "opacity"; from: 0; to: 1.0; duration: 150; easing.type: Easing.InSine }
+    }
+
     Component.onCompleted: {
         var obj = defaultTexts()
         for (var i in obj)
