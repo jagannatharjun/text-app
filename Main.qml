@@ -182,7 +182,8 @@ ApplicationWindow {
                         {
                             "name": "HHH",
                             "icon": "qrc:///res/d1.png",
-                            "online": true
+                            "online": true,
+                            "subtitle": "you"
                         },
                         {
                             "name": "Heal",
@@ -203,7 +204,7 @@ ApplicationWindow {
                         text: modelData.name
                         icon.source: modelData.icon
                         online: modelData.online
-                        font.weight: Font.DemiBold
+                        subtitle: "subtitle" in modelData ? modelData.subtitle : ""
                         visible: directMessageButton.open
                     }
                 }
@@ -304,6 +305,10 @@ ApplicationWindow {
     component ProfileIcon : ButtonExt {
         property bool online: false
 
+        property string subtitle: ""
+
+        font.weight: Font.DemiBold
+
         Rectangle {
             parent: iconItem
             anchors.bottom: parent.bottom
@@ -328,6 +333,13 @@ ApplicationWindow {
                 border.width: online ? 2 : 1
                 border.color: online ? "#56A97A" : "#B4FFFFFF"
             }
+        }
+
+        Label {
+            text: subtitle
+            parent: contentItem
+            font.weight: Font.Light
+            color: "white"
         }
 
     }

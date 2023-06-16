@@ -24,7 +24,7 @@ T.Button {
         color: hovered ? "#2D649E" : "transparent"
     }
 
-    contentItem: RowLayout {
+    contentItem: Row {
         spacing: 10
 
         Loader {
@@ -34,9 +34,6 @@ T.Button {
         }
 
         Label {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-
             font: root.font
             text: root.text
             visible: !!text
