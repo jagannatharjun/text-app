@@ -256,6 +256,9 @@ ListView {
         }
     }
 
+    ScrollBar.vertical: ScrollBar {
+    }
+
     function defaultTexts() {
         var obj = [{
             "user": "Heal",
