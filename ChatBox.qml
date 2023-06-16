@@ -24,16 +24,18 @@ Container {
     }
 
     contentItem: ColumnLayout {
-        TextArea {
+        ScrollViewExt {
             Layout.fillWidth: true
 
-            placeholderText: "Message # uxui_design"
+            TextArea {
+                placeholderText: "Message # uxui_design"
 
-            Keys.priority: Keys.BeforeItem
-            Keys.onReturnPressed: function (event) {
-                event.accepted = !(event.modifiers & Qt.ShiftModifier)
-                if (event.accepted)
-                    inputText(text)
+                Keys.priority: Keys.BeforeItem
+                Keys.onReturnPressed: function (event) {
+                    event.accepted = !(event.modifiers & Qt.ShiftModifier)
+                    if (event.accepted)
+                        inputText(text)
+                }
             }
         }
 
