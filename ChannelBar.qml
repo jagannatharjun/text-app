@@ -83,15 +83,14 @@ Container {
         }
 
         Row {
-            id: channelRow
-
+            // to give overlapping effect
             spacing: -8
 
             Repeater {
                 model: ["qrc:///res/channel3.png", "qrc:///res/channel2.png", "qrc:///res/channel1.png"]
 
                 Image {
-                    z: channelRow.count - index
+                    z: count - index
                     source: modelData
                 }
             }
