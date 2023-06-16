@@ -309,6 +309,13 @@ ApplicationWindow {
                 border.color: "white"
 
                 visible: alphabutton.hovered || alphabutton.highlighted
+
+                opacity: visible ? 1 : 0
+                Behavior on opacity {
+                    SmoothedAnimation {
+                        duration: 150
+                    }
+                }
             }
 
             Rectangle {
