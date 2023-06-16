@@ -60,6 +60,15 @@ Window {
                         model: ["Test", "Test2", "Test3"]
                     }
 
+                    Image {
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.margins: 16
+                        source: "qrc:///res/bookmark.svg"
+                        width: 36
+                        height: 36
+                    }
+
                     Rectangle {
                         anchors.bottom: parent.bottom
 
