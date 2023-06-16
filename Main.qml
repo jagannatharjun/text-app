@@ -160,14 +160,31 @@ ApplicationWindow {
                 }
 
                 Repeater {
-                    model: 7
+                    model: [
+                        {
+                            "name": "HHH",
+                            "icon": "qrc:///res/d1.png",
+                            "online": true
+                        },
+                        {
+                            "name": "Heal",
+                            "icon": "qrc:///res/d2.png",
+                            "online": true
+                        },
+                        {
+                            "name": "Kamran",
+                            "icon": "qrc:///res/d3.png",
+                            "online": false
+                        }
+                    ]
 
-                    ButtonExt {
+                    ProfileIcon {
                         leftPadding: 26
                         Layout.fillWidth: true
 
-                        text: "channel-" + (index + 1)
-                        icon.source: "qrc:///res/hash.svg"
+                        text: modelData.name
+                        icon.source: modelData.icon
+                        online: modelData.online
                         font.weight: Font.DemiBold
                     }
                 }
@@ -238,6 +255,37 @@ ApplicationWindow {
                 color: "white"
             }
         }
+    }
+
+    component ProfileIcon : ButtonExt {
+        property bool online: false
+
+        Rectangle {
+            parent: iconItem
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.rightMargin: - width / 2
+            anchors.bottomMargin: - height / 2
+
+            color:  "#3F0F3F"
+
+            width: 10
+            height: 10
+            radius: 5
+
+            Rectangle {
+                anchors.centerIn: parent
+
+                width: 6
+                height: 6
+                radius: 3
+
+                color: online ? "#56A97A" : "#3F0F3F"
+                border.width: online ? 2 : 1
+                border.color: online ? "#56A97A" : "#B4FFFFFF"
+            }
+        }
+
     }
 
     component AlphaButton: RoundButton {

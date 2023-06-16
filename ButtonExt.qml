@@ -6,6 +6,7 @@ import QtQuick.Templates as T
 T.Button {
     id: root
 
+    property alias iconItem: iconLoader.item
     property Component iconDelegate: DefaultIconDelegate {
     }
 
@@ -24,6 +25,8 @@ T.Button {
         spacing: 10
 
         Loader {
+            id: iconLoader
+
             sourceComponent: root.iconDelegate
         }
 
