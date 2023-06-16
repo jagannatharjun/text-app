@@ -5,9 +5,14 @@ import QtQuick.Layouts
 
 Container {
 
+    clip: true
+
     implicitHeight: Math.max(88, implicitContentHeight + topInset + bottomInset)
 
-    padding: 10
+    leftPadding: 10
+    rightPadding: 10
+    topPadding: 10
+    bottomPadding: 4
 
     background: Rectangle {
         color: "transparent"
@@ -17,7 +22,6 @@ Container {
     }
 
     contentItem: ColumnLayout {
-
         TextArea {
             Layout.fillHeight: true
             Layout.fillWidth: true
@@ -25,51 +29,62 @@ Container {
             placeholderText: "Message # uxui_design"
         }
 
-        RowLayout {
-            spacing: 10
+        ScrollViewExt {
+            id: editBox
 
-            ButtonExt {
-                icon.source: "qrc:///res/light.svg"
+            Layout.fillWidth: true
+
+            implicitWidth: layout.width
+            implicitHeight: layout.height
+
+            RowLayout {
+                id: layout
+
+                spacing: 10
+                width: editBox.width
+
+                ButtonExt {
+                    icon.source: "qrc:///res/light.svg"
+                }
+
+                Rectangle {
+                    Layout.alignment: Qt.AlignVCenter
+
+                    height: 24
+                    width: 1
+
+                    color: "#DFDFDF"
+                }
+
+                Image {
+                    source: "qrc:///res/editbuttons.png"
+                }
+
+                Item {
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                }
+
+                ButtonExt {
+                    icon.source: "qrc:///res/Aa.png"
+                }
+
+                ButtonExt {
+                    icon.source: "qrc:///res/at.png"
+                }
+
+                ButtonExt {
+                    icon.source: "qrc:///res/emoji.png"
+                }
+
+                ButtonExt {
+                    icon.source: "qrc:///res/clip.png"
+                }
+
+                ButtonExt {
+                    icon.source: "qrc:///res/send.png"
+                }
             }
-
-            Rectangle {
-                Layout.alignment: Qt.AlignVCenter
-
-                height: 24
-                width: 1
-
-                color: "#DFDFDF"
-            }
-
-            Image {
-                source: "qrc:///res/editbuttons.png"
-            }
-
-            Item {
-                Layout.fillHeight: true
-                Layout.fillWidth: true
-            }
-
-            ButtonExt {
-                icon.source: "qrc:///res/Aa.png"
-            }
-
-            ButtonExt {
-                icon.source: "qrc:///res/at.png"
-            }
-
-            ButtonExt {
-                icon.source: "qrc:///res/emoji.png"
-            }
-
-            ButtonExt {
-                icon.source: "qrc:///res/clip.png"
-            }
-
-            ButtonExt {
-                icon.source: "qrc:///res/send.png"
-            }
-
         }
     }
 }

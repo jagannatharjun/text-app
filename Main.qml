@@ -9,6 +9,8 @@ ApplicationWindow {
     visible: true
     title: qsTr("Hello World")
 
+    minimumWidth: 800
+
     header: TopBar {
     }
 
@@ -231,6 +233,7 @@ ApplicationWindow {
             }
 
             MessageView {
+                topMargin: 20
                 Layout.fillHeight: true
                 Layout.fillWidth: true
 
