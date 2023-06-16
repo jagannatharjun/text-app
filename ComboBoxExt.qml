@@ -10,6 +10,7 @@ ComboBox {
     background: null
 
     font.weight: Font.DemiBold
+    font.pixelSize: 15
 
     contentItem: Text {
         leftPadding: 0
