@@ -7,7 +7,7 @@ Container {
 
     clip: true
 
-    implicitHeight: Math.max(88, implicitContentHeight + topInset + bottomInset)
+    implicitHeight: implicitContentHeight + topPadding + bottomPadding
 
     leftPadding: 10
     rightPadding: 10
@@ -25,7 +25,6 @@ Container {
 
     contentItem: ColumnLayout {
         TextArea {
-            Layout.fillHeight: true
             Layout.fillWidth: true
 
             placeholderText: "Message # uxui_design"

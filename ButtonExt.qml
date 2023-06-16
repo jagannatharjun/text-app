@@ -17,7 +17,7 @@ T.Button {
     icon.width: 20
     icon.height: 20
 
-    implicitWidth:  implicitContentWidth+ leftPadding + rightPadding
+    implicitWidth:  implicitContentWidth + leftPadding + rightPadding
     implicitHeight: implicitContentHeight + topPadding + bottomPadding
 
     background: Rectangle {
