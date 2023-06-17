@@ -7,7 +7,10 @@ ListView {
 
 
     function pushText(text) {
-        var obj = defaultTexts()[0]
+        var obj = defaultTexts()
+
+        // randomly push message
+        obj = obj[Math.floor(Math.random() * obj.length)]
         obj["text"] = text
 
         model.insert(0, {"data": obj})
